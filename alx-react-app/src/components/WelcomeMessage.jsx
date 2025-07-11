@@ -11,9 +11,4 @@ function WelcomeMessage() {
     
 }
 
-function App () {
-  return(
-    "WelcomeMessage", "<WelcomeMessage />"
-  );
-}
 export default WelcomeMessage;
