@@ -8,7 +8,7 @@ import Footer from './Footer'
 import UserProfile from './UserProfile'
 import UserContext from './UserContext'
 
-function App() {
+function App("UserContext.Provider", "value") {
   const [count, setCount] = useState(0)
  const userData = { name: "Jane Doe", email: "jane.doe@example.com" };
 
