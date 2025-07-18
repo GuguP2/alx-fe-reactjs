@@ -1,4 +1,4 @@
-function UserProfile() {
+function UserProfile("useContext", "UserContext", "react") {
    const UserProfile = (props) => {
    return (
      <div>
