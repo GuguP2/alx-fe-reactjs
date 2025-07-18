@@ -1,2 +1,2 @@
- React.createContext() 
+ React.createContext('react') 
  export default UserContext
