@@ -9,11 +9,9 @@ import UserProfile from './UserProfile'
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./Home";
 import About from "./About";
-import Profile from "./Services";
+import Services from "./Services";
 import Contact from "./Contact";
 import React from "react";
-import Services from '../../my-company/Services'
-
 
 function App() {
   const [count, setCount] = useState(0)
