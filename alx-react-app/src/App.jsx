@@ -2,10 +2,10 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import HomePage from "./pages/HomePage";
-import AboutPage from "./pages/AboutPage";
-import ProfilePage from "./pages/ProfilePage";
-import ContactPage from "./pages/ContactPage";
+import Home from "./Home";
+import About from "./About";
+import Profile from "./Profile";
+import Contact from "./Contact";
 
 function App() {
   return (
