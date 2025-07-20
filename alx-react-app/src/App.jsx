@@ -15,7 +15,7 @@ import React from "react";
 import Services from '../../my-company/Services'
 
 
-function App("react-router-dom", "Route", "path", "Routes", "element") {
+function App() {
   const [count, setCount] = useState(0)
 
   return (
@@ -51,6 +51,7 @@ function App("react-router-dom", "Route", "path", "Routes", "element") {
       "WelcomeMessage", "<WelcomeMessage />"
      <Header />
     <MainContent />
+    
     <Footer />
     <UserProfile name="Alice" age="25" bio="Loves hiking and photography" />
     </>
