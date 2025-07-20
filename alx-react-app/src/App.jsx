@@ -11,6 +11,8 @@ import Home from "./Home";
 import About from "./About";
 import Profile from "./Services";
 import Contact from "./Contact";
+import React from "react";
+import Services from '../../my-company/Services'
 
 
 function App() {
@@ -20,10 +22,10 @@ function App() {
     <>
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/about" element={<AboutPage />} />
-        <Route path="/profile" element={<ProfilePage />} />
-        <Route path="/contact" element={<ContactPage />} />
+        <Route path="/home" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/services" element={<Services />} />
+        <Route path="/contact" element={<Contact />} />
       </Routes>
     </BrowserRouter>
       <div>
