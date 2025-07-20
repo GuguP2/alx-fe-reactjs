@@ -12,7 +12,8 @@ import About from "./About";
 import Services from "./Services";
 import Contact from "./Contact";
 import React from "react";
-
+import React from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 function App() {
   const [count, setCount] = useState(0)
 
