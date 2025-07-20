@@ -6,12 +6,26 @@ import Header from'./Header'
 import MainContent from './MainContent'
 import Footer from './Footer'
 import UserProfile from './UserProfile'
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from "./Home";
+import About from "./About";
+import Profile from "./Services";
+import Contact from "./Contact";
+
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
     <>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/about" element={<AboutPage />} />
+        <Route path="/profile" element={<ProfilePage />} />
+        <Route path="/contact" element={<ContactPage />} />
+      </Routes>
+    </BrowserRouter>
       <div>
         <a href="https://vite.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />
@@ -38,6 +52,7 @@ function App() {
     <Footer />
     <UserProfile name="Alice" age="25" bio="Loves hiking and photography" />
     </>
+    
   );
 }
 
