@@ -1,29 +1,30 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-import RecipeList from './components/RecipeList';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import AddRecipeForm from './components/AddRecipeForm';
-import useRecipeStore from './stores/recipeStore';
+import RecipeList from './components/RecipeList';
+import RecipeDetails from './components/RecipeDetails';
+import EditRecipeForm from './components/EditRecipeForm';
 
 function App() {
-  const initializeRecipes = useRecipeStore((state) => state.initializeRecipes);
-
-  useEffect(() => {
-    // Optional: preload with some sample recipes
-    initializeRecipes([
-      { id: 1, name: "Pasta Carbonara" },
-      { id: 2, name: "Beef Stew" }
-    ]);
-  }, [initializeRecipes]);
-
   return (
-    <div style={{ padding: '20px', fontFamily: 'Arial' }}>
-      <h1>My Recipes</h1>
-      <AddRecipeForm />
-      <RecipeList />
-    </div>
+    <BrowserRouter>
+      <div style={{ padding: '20px' }}>
+        <h1>My Recipes</h1>
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <>
+                <AddRecipeForm />
+                <RecipeList />
+              </>
+            }
+          />
+          <Route path="/recipe/:id" element={<RecipeDetails />} />
+          <Route path="/edit/:id" element={<EditRecipeForm />} />
+        </Routes>
+      </div>
+    </BrowserRouter>
   );
 }
 
-export default App
+export default App;
