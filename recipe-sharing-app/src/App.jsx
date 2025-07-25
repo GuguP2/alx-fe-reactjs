@@ -18,12 +18,17 @@ function App() {
                 <RecipeList />
               </>
             }
-          />
+          /><Routes>
+  <Route path="/" element={<><AddRecipeForm /><RecipeList /></>} />
+  ...
+</Routes>
+
           <Route path="/recipe/:id" element={<RecipeDetails />} />
           <Route path="/edit/:id" element={<EditRecipeForm />} />
         </Routes>
       </div>
     </BrowserRouter>
+    
   );
 }
 
