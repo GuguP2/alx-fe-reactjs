@@ -13,7 +13,7 @@ function EditRecipeForm() {
   const [name, setName] = useState(recipe?.name || '');
 
   if (!recipe) return <p>Recipe not found.</p>;
-
+event.preventDefault
   const handleSubmit = (e) => {
     e.preventDefault();
     updateRecipe({ ...recipe, name });
