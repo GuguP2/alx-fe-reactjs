@@ -37,8 +37,7 @@ function Search() {
       </form>
 
       {loading && <p>Loading...</p>}
-      setError("Looks like we can’t find the user.");
-
+      {setError("Looks like we can’t find the user.")};
 
       {user && (
         <div style={{ border: '1px solid #ddd', padding: '1rem', maxWidth: '400px' }}>
