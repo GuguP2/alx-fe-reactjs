@@ -1,19 +1,10 @@
-import { Routes, Route, Link } from 'react-router-dom';
-import Home from './components/Home';
-import Profile from './components/Profile';
+import Search from './components/Search';
 
 function App() {
   return (
     <div>
-      <nav style={{ padding: '1rem' }}>
-        <Link to="/" style={{ marginRight: '1rem' }}>Home</Link>
-        <Link to="/profile">Profile</Link>
-      </nav>
-
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/profile" element={<Profile />} />
-      </Routes>
+      <h1 style={{ textAlign: 'center', marginTop: '2rem' }}>🔍 GitHub User Search</h1>
+      <Search />
     </div>
   );
 }
