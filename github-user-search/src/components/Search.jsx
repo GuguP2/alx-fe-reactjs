@@ -37,7 +37,8 @@ function Search() {
       </form>
 
       {loading && <p>Loading...</p>}
-      {error && <p style={{ color: 'red' }}>{error}</p>}
+      setError("Looks like we can’t find the user.")
+
 
       {user && (
         <div style={{ border: '1px solid #ddd', padding: '1rem', maxWidth: '400px' }}>
