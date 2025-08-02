@@ -37,7 +37,7 @@ function Search() {
       </form>
 
       {loading && <p>Loading...</p>}
-      setError("Looks like we can’t find the user.")
+      setError("Looks like we can’t find the user.");
 
 
       {user && (
