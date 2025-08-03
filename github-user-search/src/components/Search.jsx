@@ -8,24 +8,25 @@ function Search() {
   const [error, setError] = useState('');
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
-    setLoading(true);
-    setError('');
-    setResults([]);
+  e.preventDefault();
+  setLoading(true);
+  setError('');
+  setResults([]);
 
-    try {
-      const users = await searchUsers(query);
-      if (users.length === 0) {
-        setError("Looks like we cant find the user");
-      } else {
-        setResults(users);
-      }
-    } catch (err) {
+  try {
+    const users = await searchUsers(query, location, minRepos); // ← pass them here
+    if (users.length === 0) {
       setError("Looks like we cant find the user");
-    } finally {
-      setLoading(false);
+    } else {
+      setResults(users);
     }
-  };
+  } catch (err) {
+    setError("Looks like we cant find the user");
+  } finally {
+    setLoading(false);
+  }
+};
+
 
   return (
     <div className="max-w-xl mx-auto p-4">
