@@ -19,6 +19,7 @@ const AddRecipeForm = () => {
       return "Please enter preparation steps.";
     }
     return ""; // no errors
+    validate
   };
 
   const handleSubmit = (e) => {
