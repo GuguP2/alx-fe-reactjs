@@ -2,19 +2,39 @@
   {
     "id": 1,
     "title": "Spaghetti Carbonara",
-    "summary": "A creamy pasta dish with eggs, cheese, pancetta, and pepper.",
-    "image": "https://via.placeholder.com/400x250"
+    "image": "https://via.placeholder.com/400x250",
+    "ingredients": [
+      "200g spaghetti",
+      "2 eggs",
+      "100g pancetta",
+      "50g parmesan cheese",
+      "Salt and pepper"
+    ],
+    "instructions": [
+      "Boil pasta in salted water until al dente.",
+      "Cook pancetta until crispy.",
+      "Whisk eggs with cheese.",
+      "Drain pasta and combine with pancetta.",
+      "Mix in egg mixture off heat, season, and serve."
+    ]
   },
   {
     "id": 2,
     "title": "Chicken Curry",
-    "summary": "A flavorful curry dish made with tender chicken and aromatic spices.",
-    "image": "https://via.placeholder.com/400x250"
-  },
-  {
-    "id": 3,
-    "title": "Vegetable Stir Fry",
-    "summary": "A quick and healthy stir fry with colorful vegetables and soy sauce.",
-    "image": "https://via.placeholder.com/400x250"
+    "image": "https://via.placeholder.com/400x250",
+    "ingredients": [
+      "500g chicken",
+      "2 onions",
+      "2 cloves garlic",
+      "1 tbsp curry powder",
+      "400ml coconut milk"
+    ],
+    "instructions": [
+      "Sauté onions and garlic until soft.",
+      "Add chicken and cook until browned.",
+      "Stir in curry powder.",
+      "Pour in coconut milk and simmer for 20 mins.",
+      "Serve with rice."
+    ]
   }
 ]
