@@ -6,30 +6,35 @@ const AddRecipeForm = () => {
   const [steps, setSteps] = useState("");
   const [errors, setErrors] = useState("");
 
+  // Separate validation function
+  const validate = () => {
+    const ingredientList = ingredients.split("\n").filter((item) => item.trim() !== "");
+    if (!title.trim()) {
+      return "Please enter a recipe title.";
+    }
+    if (ingredientList.length < 2) {
+      return "Please enter at least two ingredients (one per line).";
+    }
+    if (!steps.trim()) {
+      return "Please enter preparation steps.";
+    }
+    return ""; // no errors
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Validation
-    const ingredientList = ingredients.split("\n").filter((item) => item.trim() !== "");
-    if (!title.trim()) {
-      setErrors("Please enter a recipe title.");
-      return;
-    }
-    if (ingredientList.length < 2) {
-      setErrors("Please enter at least two ingredients (one per line).");
-      return;
-    }
-    if (!steps.trim()) {
-      setErrors("Please enter preparation steps.");
+    const errorMsg = validate();
+    if (errorMsg) {
+      setErrors(errorMsg);
       return;
     }
 
     setErrors(""); // clear errors
 
-    // Here you could POST data to a backend or save it in state
     const newRecipe = {
       title,
-      ingredients: ingredientList,
+      ingredients: ingredients.split("\n").filter((item) => item.trim() !== ""),
       instructions: steps.split("\n").filter((step) => step.trim() !== ""),
     };
 
