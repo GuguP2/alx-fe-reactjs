@@ -3,32 +3,25 @@ import React from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 
-// ✅ Yup validation schema
+// ✅ Validation schema using Yup
 const validationSchema = Yup.object({
-  username: Yup.string()
-    .min(3, "Username must be at least 3 characters")
-    .required("Username is required"),
-  email: Yup.string()
-    .email("Invalid email address")
-    .required("Email is required"),
-  password: Yup.string()
-    .min(6, "Password must be at least 6 characters")
-    .required("Password is required"),
+  username: Yup.string().required("Username is required"),
+  email: Yup.string().email("Invalid email format").required("Email is required"),
+  password: Yup.string().min(6, "Password must be at least 6 characters").required("Password is required"),
 });
 
 const FormikForm = () => {
   return (
     <div className="max-w-md mx-auto mt-10 p-6 border rounded-lg shadow-lg">
-      <h2 className="text-2xl font-bold mb-6 text-center">Registration Form</h2>
+      <h2 className="text-2xl font-bold mb-6 text-center">Formik Registration</h2>
 
       <Formik
         initialValues={{ username: "", email: "", password: "" }}
         validationSchema={validationSchema}
-        onSubmit={(values, { resetForm, setSubmitting }) => {
+        onSubmit={(values, { resetForm }) => {
           console.log("✅ Form submitted:", values);
           alert("Registration successful!");
           resetForm();
-          setSubmitting(false);
         }}
       >
         {({ isSubmitting }) => (
@@ -40,6 +33,7 @@ const FormikForm = () => {
                 type="text"
                 name="username"
                 className="w-full border p-2 rounded"
+                placeholder="Enter username"
               />
               <ErrorMessage
                 name="username"
@@ -55,6 +49,7 @@ const FormikForm = () => {
                 type="email"
                 name="email"
                 className="w-full border p-2 rounded"
+                placeholder="Enter email"
               />
               <ErrorMessage
                 name="email"
@@ -70,6 +65,7 @@ const FormikForm = () => {
                 type="password"
                 name="password"
                 className="w-full border p-2 rounded"
+                placeholder="Enter password"
               />
               <ErrorMessage
                 name="password"
@@ -82,9 +78,9 @@ const FormikForm = () => {
             <button
               type="submit"
               disabled={isSubmitting}
-              className="w-full bg-blue-500 text-white p-2 rounded hover:bg-blue-600 transition"
+              className="w-full bg-green-500 text-white p-2 rounded hover:bg-green-600 transition"
             >
-              {isSubmitting ? "Registering..." : "Register"}
+              Register
             </button>
           </Form>
         )}
