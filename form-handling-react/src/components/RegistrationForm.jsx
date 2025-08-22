@@ -5,14 +5,27 @@ const RegistrationForm = () => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [errors, setErrors] = useState({}); // <-- track validation errors
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (!username || !email || !password) {
-      alert("All fields are required!");
-      return;
+    let formErrors = {};
+
+    if (!username) {
+      formErrors.username = "Username is required";
     }
+    if (!email) {
+      formErrors.email = "Email is required";
+    }
+    if (!password) {
+      formErrors.password = "Password is required";
+    }
+
+    setErrors(formErrors);
+
+    // Stop submission if errors exist
+    if (Object.keys(formErrors).length > 0) return;
 
     console.log("✅ Form submitted:", { username, email, password });
     alert("Registration successful!");
@@ -21,6 +34,7 @@ const RegistrationForm = () => {
     setUsername("");
     setEmail("");
     setPassword("");
+    setErrors({});
   };
 
   return (
@@ -38,6 +52,9 @@ const RegistrationForm = () => {
             className="w-full border p-2 rounded"
             placeholder="Enter username"
           />
+          {errors.username && (
+            <p className="text-red-500 text-sm">{errors.username}</p>
+          )}
         </div>
 
         {/* Email */}
@@ -50,6 +67,9 @@ const RegistrationForm = () => {
             className="w-full border p-2 rounded"
             placeholder="Enter email"
           />
+          {errors.email && (
+            <p className="text-red-500 text-sm">{errors.email}</p>
+          )}
         </div>
 
         {/* Password */}
@@ -62,6 +82,9 @@ const RegistrationForm = () => {
             className="w-full border p-2 rounded"
             placeholder="Enter password"
           />
+          {errors.password && (
+            <p className="text-red-500 text-sm">{errors.password}</p>
+          )}
         </div>
 
         {/* Submit Button */}
