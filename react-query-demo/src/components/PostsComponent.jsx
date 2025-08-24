@@ -2,7 +2,7 @@
 import React from "react";
 import { useQuery } from "@tanstack/react-query";
 
-// Function to fetch posts
+// Fetch posts function
 const fetchPosts = async () => {
   const response = await fetch("https://jsonplaceholder.typicode.com/posts");
   if (!response.ok) {
@@ -20,10 +20,12 @@ const PostsComponent = () => {
     refetch,
     isFetching,
   } = useQuery({
-    queryKey: ["posts"], // unique cache key
+    queryKey: ["posts"],
     queryFn: fetchPosts,
-    staleTime: 1000 * 60, // 1 minute (data stays fresh for 1 min)
-    cacheTime: 1000 * 60 * 5, // 5 minutes (cached before garbage collected)
+    staleTime: 1000 * 60, // Data considered fresh for 1 min
+    cacheTime: 1000 * 60 * 5, // Cache lasts 5 min
+    refetchOnWindowFocus: false, // prevent auto refetch when window regains focus
+    keepPreviousData: true, // useful for smoother updates
   });
 
   if (isLoading) return <p>Loading posts...</p>;
